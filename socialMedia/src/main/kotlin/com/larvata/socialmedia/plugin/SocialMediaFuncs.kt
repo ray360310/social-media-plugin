@@ -43,7 +43,7 @@ object SocialMediaFuncs {
 
     fun openInstagram(context: Context, pageId: String) {
         val appUri = Uri.parse("https://instagram.com/_u/$pageId")
-        val browserUri = Uri.parse("https://instagram.com/$pageId")
+        val browserUri = Uri.parse("https://www.instagram.com/$pageId")
         try {
             val packageManager = context.packageManager
             val appIntent: Intent? =
