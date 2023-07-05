@@ -45,12 +45,8 @@ object SocialMediaFuncs {
         val appUri = Uri.parse("https://instagram.com/_u/$pageId")
         val browserUri = Uri.parse("https://www.instagram.com/$pageId")
         try {
-            val packageManager = context.packageManager
-            val appIntent: Intent? =
-                packageManager.getLaunchIntentForPackage("com.instagram.android")
-            if (appIntent != null) {
-                appIntent.action = Intent.ACTION_VIEW
-                appIntent.data = appUri
+            if (context.packageManager.getPackageInfo("com.instagram.android",0) != null) {
+                val appIntent = Intent(Intent.ACTION_VIEW, appUri)
                 context.startActivity(appIntent)
             } else {
                 val browserIntent = Intent(Intent.ACTION_VIEW, browserUri)
